@@ -1,17 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 
-function ToyCard() {
+function ToyCard({toyName, toyImage, toyLikes, toyId, handleDeleteClick, handleToyLikes}) {
+  // console.log(toyName + toyLikes)
+
+
+
   return (
     <div className="card">
-      <h2>{"" /* Toy's Name */}</h2>
+      <h2>{toyName}</h2>
       <img
-        src={"" /* Toy's Image */}
-        alt={"" /* Toy's Name */}
+        src={toyImage}
+        alt={toyName}
         className="toy-avatar"
       />
-      <p>{"" /* Toy's Likes */} Likes </p>
-      <button className="like-btn">Like {"<3"}</button>
-      <button className="del-btn">Donate to GoodWill</button>
+      <p>{toyLikes} Likes </p>
+      <button className="like-btn" onClick={()=>handleToyLikes(toyId, toyLikes)}>Like</button>
+      <button className="del-btn" onClick={()=>handleDeleteClick(toyId)}>Donate to GoodWill</button>
     </div>
   );
 }
